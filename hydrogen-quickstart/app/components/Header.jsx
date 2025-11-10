@@ -81,6 +81,16 @@ export function HeaderMenu({
           </NavLink>
         );
       })}
+      <NavLink
+        className={menuLinkClassName}
+        end
+        key="landing-page-link"
+        onClick={close}
+        prefetch="intent"
+        to="/landing-page"
+      >
+        LP
+      </NavLink>
     </nav>
   );
 }
@@ -223,6 +233,15 @@ const FALLBACK_HEADER_MENU = {
       title: 'Policies',
       type: 'HTTP',
       url: '/policies',
+      items: [],
+    },
+    {
+      id: 'gid://shopify/MenuItem/landing-page',
+      resourceId: null,
+      tags: [],
+      title: 'LP',
+      type: 'HTTP',
+      url: '/landing-page',
       items: [],
     },
     {

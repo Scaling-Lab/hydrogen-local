@@ -941,6 +941,10 @@ button.reset:hover:not(:has(> *)) {
   flex-wrap: wrap;
 }
 
+.science__inner--reverse {
+  flex-direction: row-reverse;
+}
+
 .science__content {
   flex: 1 1 460px;
 }
@@ -963,6 +967,10 @@ button.reset:hover:not(:has(> *)) {
 
 .science__highlight {
   color: #d10000;
+}
+
+.science__highlight--blue {
+  color: #1a73e8;
 }
 
 .science__copy {
@@ -999,6 +1007,10 @@ button.reset:hover:not(:has(> *)) {
 
 @media (max-width: 900px) {
   .science__inner {
+    flex-direction: column;
+  }
+
+  .science__inner--reverse {
     flex-direction: column;
   }
 

@@ -1,4 +1,4 @@
-const BADGES = [
+const BASE_BADGES = [
   {
     id: 'guarantee',
     type: 'metric',
@@ -51,10 +51,90 @@ const BADGES = [
       </svg>
     ),
   },
+  {
+    id: 'recovery',
+    type: 'metric',
+    metric: '24/7',
+    metricLabel: 'Support',
+    title: 'RECOVERY\nFOCUS',
+    subtitle: 'Anytime Sessions',
+  },
+  {
+    id: 'coaching',
+    title: 'GUIDED\nCOACHING',
+    subtitle: 'Video walkthroughs',
+    icon: (props) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="#64d97a" {...props}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M4 4h16v12H4z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="m10 8 4 2-4 2V8Z"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M6 20h12"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: 'performance',
+    title: 'PERFORMANCE\nTRACKING',
+    subtitle: 'Weekly insights',
+    icon: (props) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="#64d97a" {...props}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M4 20V4"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M8 20v-6m4 6v-9m4 9v-4m4 4V8"
+        />
+      </svg>
+    ),
+  },
+  {
+    id: 'community',
+    title: 'COMMUNITY\nACCESS',
+    subtitle: 'Live Q&A rooms',
+    icon: (props) => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="#64d97a" {...props}>
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M7 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm0 0v1a4 4 0 0 0 4 4h2"
+        />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M17 22a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z"
+        />
+      </svg>
+    ),
+  },
 ];
 
-export function BadgesSection() {
-  const marqueeBadges = [...BADGES, ...BADGES];
+export function BadgesSection({guaranteeMetric = '60'}) {
+  const badges = BASE_BADGES.map((badge) =>
+    badge.id === 'guarantee' ? {...badge, metric: guaranteeMetric} : badge,
+  );
+  const marqueeBadges = [...badges, ...badges];
 
   return (
     <section className="badges">
@@ -73,7 +153,7 @@ export function BadgesSection() {
 
         <div className="badges__desktop">
           <div className="badges__grid">
-            {BADGES.map((badge) => (
+            {badges.map((badge) => (
               <BadgeCard badge={badge} key={badge.id} />
             ))}
           </div>
